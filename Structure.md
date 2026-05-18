@@ -1,0 +1,55 @@
+- directory
+    - README.md
+      - How can one train and TEST your model?
+    - default.json
+    - params.py
+    - main.py # Create experiment directory automatically. Log everything. 
+      - params # python main.py --epochs 100 --loss "mse" --resnet_depth 4
+        - python main.py --config config.yaml / .json
+      - def pipe(params)
+        - for ep in epochs: train and validate
+    - dataset
+      - loaders.py
+        - Get train_loaders, val_loaders
+      - dataset.py
+        - Class for custom dataset
+          - __get_item__ attribute
+      - preprocessing
+        - filters.py
+        - image_processing.py
+        - custom_transformations.py
+      - postprocessing
+    - metrics
+      - mean_distance.py
+      - diceScore.py
+      - KL.py
+    - net 
+      - losses
+        - custom_loss1.py # nn.module class
+      - networks
+        - resnet.py
+        - inception_net.py
+      - utility / layers
+        - custom_layers.py /blocks.py
+      - backbone
+        - resnet.py # PyTorch pretrained weights.
+    - utility
+      - save_checkpoint.py # Save model.
+      - load_checkpoint.py # model, loss_fn, optimizer, val_loss
+      - get_fresh_model.py # model, loss_fn, optimizer, val_loss
+    - runs
+      - ~prefix~_integer OR timestamp
+        - models
+        - outputs
+        - scores
+        - logs 
+        - parameters
+        - and everything else related to experiment
+    - phases
+      - train.py # one epoch / iteration 
+        - def train_one_ep()
+      - infer.py # one epoch
+        - def infer_one_ep(validation=True, eval=True, save=True)
+    - visual 
+      - plot.py
+      - gradcam.py
