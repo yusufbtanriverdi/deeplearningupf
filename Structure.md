@@ -1,7 +1,10 @@
 - directory
     - README.md
       - How can one train and TEST your model?
-    - default.json
+      - pip install -r doc/requirements.txt
+    - doc
+      - default.json
+      - requirements.txt # You put libraries with version number. pytorch or torchvision from a different link you need write another CL. e.g. pip install torch_cu12 --url torch.org/blabla
     - params.py
     - main.py # Create experiment directory automatically. Log everything. 
       - params # python main.py --epochs 100 --loss "mse" --resnet_depth 4
